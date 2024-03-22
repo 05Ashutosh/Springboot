@@ -1,6 +1,9 @@
 package com.demo.product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Service
 public class ProductService {
@@ -25,4 +28,14 @@ public class ProductService {
 
         return productRepository.save(product);
     }
+
+    @GetMapping
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
+
+    public List<Product> getProductsByCategory(Integer categoryId) {
+        return productRepository.findByCategoryId(categoryId);
+    }
+
 }

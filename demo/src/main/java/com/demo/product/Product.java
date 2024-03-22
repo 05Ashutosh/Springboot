@@ -1,6 +1,8 @@
 package com.demo.product;
 
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
@@ -26,6 +28,8 @@ public class Product {
 
     private Timestamp lastUpdated;
 
+//    @Enumerated(EnumType.STRING)
+    @Column(name = "category")
     private Integer categoryId;
 
     public Long getId() {
@@ -88,10 +92,9 @@ public class Product {
         return this.categoryId;
     }
 
-    public void setCategoryId(Integer categoryId) {
+    public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
-
 
 
 
